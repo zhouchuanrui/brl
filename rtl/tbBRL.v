@@ -30,7 +30,7 @@ module tbBRL ();
 	wire wave;
 	wire end_tick;
 	reg [7:0] mem[99:0];
-	reg [7:0] cyc_duty;
+	reg [9:0] cyc_duty;
 	reg [7:0] index;
 	initial
 	begin
@@ -56,7 +56,7 @@ module tbBRL ();
 	#(///*autoinstparam*/
 	  // Parameters
 	  .pWIDTH			(10),
-	  .pPERIOD			(100),
+	  .pPERIOD			(210),
 	  .pINC				(5))
 	mzPWM 
 	(
