@@ -51,13 +51,13 @@ module zPWM
 			wave <= `HIGH;
 	end
 
-		always @(posedge clk)
-		begin
-			if (cnt >= pPERIOD - pINC)
-				end_tick <= `ON;
-			else
-				end_tick <= `OFF;
-		end
+	always @(posedge clk)
+	begin
+		if (cnt >= pPERIOD - pINC)
+			end_tick <= `ON;
+		else
+			end_tick <= `OFF;
+	end
 
 endmodule
 

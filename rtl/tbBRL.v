@@ -8,12 +8,13 @@
 //
 `timescale 1ns/100ps
 // the ModelSim project locates in "../"
-`include "rtl/zDefine.v"
+`include "zDefine.v"
 module tbBRL ();
 
-	reg clk, rst_n;
+	reg clk, rst_n, en;
 	initial
 	begin
+		en = `ON;
 		clk = `HIGH;
 		rst_n = `HIGH;
 		#44 rst_n = `LOW;
@@ -26,52 +27,67 @@ module tbBRL ();
 	always #4
 		tmp = $random;
 
-	reg en;
+	//reg en;
+	//wire wave;
+	//wire end_tick;
+	//reg [7:0] mem[99:0];
+	//reg [9:0] cyc_duty;
+	//reg [7:0] index;
+	//initial
+	//begin
+		//$readmemh("rtl/sine.dat", mem);
+		//en = `ON;
+		//index = 8'd0;
+	//end
+	//always @(posedge clk)
+	//begin
+		//if (end_tick == `ON)
+		//begin
+			//if (index == 8'd99)
+				//index <= 8'd0;
+			//else
+				//index <= index + 8'd1;
+		//end
+	//end
+	//always @(posedge clk)
+	//begin
+		//cyc_duty <= mem[index];
+	//end
+	//zPWM 
+	//#(//[>autoinstparam<]
+	  //// Parameters
+	  //.pWIDTH			(10),
+	  //.pPERIOD			(210),
+	  //.pINC				(5))
+	//mzPWM 
+	//(
+	 //// Outputs
+	 //.wave				(wave),
+	 //// Inputs
+	 //.en				(en),
+	 //.clk				(clk),
+	 //.rst_n				(rst_n),
+	 //// Outputs
+	 //.end_tick			(end_tick),
+	 //// Inputs
+	 //.cyc_duty			(cyc_duty)
+	 //[>autoinst<]
+	 //);
+	
 	wire wave;
-	wire end_tick;
-	reg [7:0] mem[99:0];
-	reg [9:0] cyc_duty;
-	reg [7:0] index;
-	initial
-	begin
-		$readmemh("rtl/sine.dat", mem);
-		en = `ON;
-		index = 8'd0;
-	end
-	always @(posedge clk)
-	begin
-		if (end_tick == `ON)
-		begin
-			if (index == 8'd99)
-				index <= 8'd0;
-			else
-				index <= index + 8'd1;
-		end
-	end
-	always @(posedge clk)
-	begin
-		cyc_duty <= mem[index];
-	end
-	zPWM 
+	zBRL 
 	#(///*autoinstparam*/
 	  // Parameters
-	  .pWIDTH			(10),
-	  .pPERIOD			(210),
-	  .pINC				(5))
-	mzPWM 
-	(
+	  .pCLK_FQ			(1),
+	  .pCARRIER_PRD			(2))
+	mzBRL 
+	(///*autoinst*/
 	 // Outputs
 	 .wave				(wave),
 	 // Inputs
 	 .en				(en),
 	 .clk				(clk),
-	 .rst_n				(rst_n),
-	 // Outputs
-	 .end_tick			(end_tick),
-	 // Inputs
-	 .cyc_duty			(cyc_duty)
-	 /*autoinst*/
-	 );
+	 .rst_n				(rst_n));
 	
 endmodule
 
