@@ -3,9 +3,9 @@
 *.mpf
 *cr.mti
 work/
-# ignore all other file
+*.wlf
+
 #*
 *~
 
-# these file types are stored:
 
