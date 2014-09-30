@@ -4,8 +4,31 @@
 *cr.mti
 work/
 *.wlf
-
-#*
+# database folds
+db/
+incremental_db/
+# tags
+tags
+# backup files
+*.bak
 *~
-
+*.swp
+# IP mega files
+*.html
+*.jpg
+*.bsf
+# report files
+*.rpt
+*.smsg
+*.summary
+# others
+*.done
+*.qws
+*.txt
+*.jdi
+*.pin
+*.pof
+*.qpf
+*.qsf
+*.sof
 
