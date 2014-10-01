@@ -21,7 +21,7 @@ tags
 *.rpt
 *.smsg
 *.summary
-# others
+# other quartus files
 *.done
 *.qws
 *.txt
