@@ -12,6 +12,8 @@ A breathing lamp sheds dimming light, when it can't get any darker, it turns get
 
 We can see that a sine wave has a perfect curve that indicates the brightness curve. So we use a PWM to carry a sine wave to drive an LED to get a breathing lamp.
 
+![pic](/doc/spwm_on_brl.png)
 
-![pic](/doc/sine_on_testbench.png)
+The simulation picture above shows how it works. The `wave` signal is the actual PWM output, and the `duty_cycle` signal represented in a sine plot shows the instant duty-cycle of PWM.
 
+For the hardware implementation, we should set the period of the sine-duty-cycle wave to a few seconds, that's really slow. And the modules should be parameterized.
